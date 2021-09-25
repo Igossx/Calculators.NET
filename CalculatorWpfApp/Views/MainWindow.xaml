@@ -1,0 +1,64 @@
+﻿<mah:MetroWindow x:Class="CalculatorWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:CalculatorWpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="450" Width="800">
+
+    <mah:MetroWindow.Resources>
+        <Style TargetType ="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="FontSize" Value="46" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="IsReadOnly" Value="True" />
+        </Style>
+    </mah:MetroWindow.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.ColumnSpan="5" TextAlignment="Right" Text="{Binding ScreenVal}"/>
+        <Button Grid.Row="1" Grid.Column="0" Content="1" Command="{Binding AddNumberCommand}" CommandParameter="1"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="2" Command="{Binding AddNumberCommand}" CommandParameter="2"/>
+        <Button Grid.Row="1" Grid.Column="2" Content="3" Command="{Binding AddNumberCommand}" CommandParameter="3"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="4" Command="{Binding AddNumberCommand}" CommandParameter="4"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="5" Command="{Binding AddNumberCommand}" CommandParameter="5"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="6" Command="{Binding AddNumberCommand}" CommandParameter="6"/>
+        <Button Grid.Row="3" Grid.Column="0" Content="7" Command="{Binding AddNumberCommand}" CommandParameter="7"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="8" Command="{Binding AddNumberCommand}" CommandParameter="8"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="9" Command="{Binding AddNumberCommand}" CommandParameter="9"/>
+        <Button Grid.Row="4" Grid.Column="0" Content="0" Grid.ColumnSpan="2" Command="{Binding AddNumberCommand}" CommandParameter="0"/>
+        <Button Grid.Row="4" Grid.Column="2" Content="," Command="{Binding AddNumberCommand}" CommandParameter=","/>
+        <Button Grid.Row="1" Grid.Column="3" Content="/" Command="{Binding AddOperationCommand}" CommandParameter="/"/>
+        <Button Grid.Row="2" Grid.Column="3" Content="-" Command="{Binding AddOperationCommand}" CommandParameter="-"/>
+        <Button Grid.Row="3" Grid.Column="3" Content="*" Command="{Binding AddOperationCommand}" CommandParameter="*"/>
+        <Button Grid.Row="4" Grid.Column="3" Content="C" Command="{Binding ClearScreenCommand}"/>
+        <Button Grid.Row="1" Grid.Column="4" Content="+" Grid.RowSpan="2" Command="{Binding AddOperationCommand}" CommandParameter="+"/>
+        <Button Grid.Row="3" Grid.Column="4" Content="=" Grid.RowSpan="2" Command="{Binding GetResultCommand}"/>
+
+    </Grid>
+    
+</mah:MetroWindow>
